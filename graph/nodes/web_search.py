@@ -12,7 +12,7 @@ def web_search(state: GraphState) -> Dict[str, Any]:
     print('web_search')
 
     question = state['question']
-    documents = state['documents']
+    documents = state.get('documents')
 
     docs = web_search_tool.invoke({'query':question})
     web_result = '\n'.join([d['content'] for d in docs])
